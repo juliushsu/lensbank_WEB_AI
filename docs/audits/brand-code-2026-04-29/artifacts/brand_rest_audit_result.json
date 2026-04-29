@@ -1,0 +1,775 @@
+{
+  "schema": {
+    "brands": {
+      "id": {
+        "default": "gen_random_uuid()",
+        "description": "Note:\nThis is a Primary Key.<pk/>",
+        "format": "uuid",
+        "type": "string"
+      },
+      "name_zh": {
+        "format": "text",
+        "type": "string"
+      },
+      "name_ja": {
+        "format": "text",
+        "type": "string"
+      },
+      "icon_url": {
+        "format": "text",
+        "type": "string"
+      },
+      "display_order": {
+        "default": 0,
+        "format": "integer",
+        "type": "integer"
+      },
+      "is_active": {
+        "default": true,
+        "format": "boolean",
+        "type": "boolean"
+      },
+      "created_at": {
+        "default": "now()",
+        "format": "timestamp with time zone",
+        "type": "string"
+      },
+      "updated_at": {
+        "default": "now()",
+        "format": "timestamp with time zone",
+        "type": "string"
+      },
+      "code": {
+        "format": "character varying",
+        "maxLength": 20,
+        "type": "string"
+      },
+      "name_en": {
+        "format": "text",
+        "type": "string"
+      },
+      "sort_order": {
+        "default": 0,
+        "format": "integer",
+        "type": "integer"
+      }
+    },
+    "products": {
+      "id": {
+        "default": "gen_random_uuid()",
+        "description": "Note:\nThis is a Primary Key.<pk/>",
+        "format": "uuid",
+        "type": "string"
+      },
+      "name_zh": {
+        "format": "character varying",
+        "maxLength": 200,
+        "type": "string"
+      },
+      "name_ja": {
+        "format": "character varying",
+        "maxLength": 200,
+        "type": "string"
+      },
+      "category": {
+        "format": "character varying",
+        "maxLength": 50,
+        "type": "string"
+      },
+      "brand": {
+        "format": "character varying",
+        "maxLength": 100,
+        "type": "string"
+      },
+      "specs": {
+        "format": "jsonb"
+      },
+      "description_zh": {
+        "format": "text",
+        "type": "string"
+      },
+      "description_ja": {
+        "format": "text",
+        "type": "string"
+      },
+      "daily_price": {
+        "format": "integer",
+        "type": "integer"
+      },
+      "weekly_price": {
+        "format": "integer",
+        "type": "integer"
+      },
+      "deposit": {
+        "default": 0,
+        "format": "integer",
+        "type": "integer"
+      },
+      "cost": {
+        "default": 0,
+        "format": "integer",
+        "type": "integer"
+      },
+      "stock_total": {
+        "default": 0,
+        "format": "integer",
+        "type": "integer"
+      },
+      "image_urls": {
+        "format": "text[]",
+        "items": {
+          "type": "string"
+        },
+        "type": "array"
+      },
+      "status": {
+        "default": "active",
+        "format": "character varying",
+        "maxLength": 20,
+        "type": "string"
+      },
+      "display_tags": {
+        "format": "text[]",
+        "items": {
+          "type": "string"
+        },
+        "type": "array"
+      },
+      "display_order": {
+        "default": 0,
+        "format": "integer",
+        "type": "integer"
+      },
+      "purchase_date": {
+        "format": "date",
+        "type": "string"
+      },
+      "view_count": {
+        "default": 0,
+        "format": "integer",
+        "type": "integer"
+      },
+      "created_at": {
+        "default": "now()",
+        "format": "timestamp with time zone",
+        "type": "string"
+      },
+      "updated_at": {
+        "default": "now()",
+        "format": "timestamp with time zone",
+        "type": "string"
+      },
+      "subcategory": {
+        "format": "character varying",
+        "maxLength": 100,
+        "type": "string"
+      },
+      "relation_tags": {
+        "description": "關聯標籤，用於推薦相關器材，格式如：#SD #FW50 #A7s",
+        "format": "text[]",
+        "items": {
+          "type": "string"
+        },
+        "type": "array"
+      },
+      "name_en": {
+        "format": "character varying",
+        "maxLength": 255,
+        "type": "string"
+      },
+      "description_en": {
+        "format": "text",
+        "type": "string"
+      },
+      "monthly_price": {
+        "format": "integer",
+        "type": "integer"
+      },
+      "is_featured": {
+        "default": false,
+        "format": "boolean",
+        "type": "boolean"
+      },
+      "accessories": {
+        "format": "jsonb"
+      }
+    },
+    "equipment_categories": {
+      "id": {
+        "description": "Note:\nThis is a Primary Key.<pk/>",
+        "format": "character varying",
+        "maxLength": 50,
+        "type": "string"
+      },
+      "name_zh": {
+        "format": "character varying",
+        "maxLength": 100,
+        "type": "string"
+      },
+      "name_ja": {
+        "format": "character varying",
+        "maxLength": 100,
+        "type": "string"
+      },
+      "parent_id": {
+        "format": "character varying",
+        "maxLength": 50,
+        "type": "string"
+      },
+      "icon": {
+        "format": "character varying",
+        "maxLength": 100,
+        "type": "string"
+      },
+      "display_order": {
+        "default": 0,
+        "format": "integer",
+        "type": "integer"
+      },
+      "is_active": {
+        "default": true,
+        "format": "boolean",
+        "type": "boolean"
+      },
+      "created_at": {
+        "default": "now()",
+        "format": "timestamp with time zone",
+        "type": "string"
+      },
+      "updated_at": {
+        "default": "now()",
+        "format": "timestamp with time zone",
+        "type": "string"
+      },
+      "icon_url": {
+        "format": "text",
+        "type": "string"
+      },
+      "code": {
+        "format": "character varying",
+        "maxLength": 50,
+        "type": "string"
+      },
+      "name_en": {
+        "format": "text",
+        "type": "string"
+      },
+      "description_zh": {
+        "format": "text",
+        "type": "string"
+      },
+      "description_ja": {
+        "format": "text",
+        "type": "string"
+      },
+      "description_en": {
+        "format": "text",
+        "type": "string"
+      }
+    },
+    "category_brands": {
+      "id": {
+        "description": "Note:\nThis is a Primary Key.<pk/>",
+        "format": "integer",
+        "type": "integer"
+      },
+      "category_id": {
+        "description": "Note:\nThis is a Foreign Key to `equipment_categories.id`.<fk table='equipment_categories' column='id'/>",
+        "format": "character varying",
+        "maxLength": 50,
+        "type": "string"
+      },
+      "brand_id": {
+        "description": "Note:\nThis is a Foreign Key to `brands.id`.<fk table='brands' column='id'/>",
+        "format": "uuid",
+        "type": "string"
+      },
+      "created_at": {
+        "default": "now()",
+        "format": "timestamp with time zone",
+        "type": "string"
+      }
+    }
+  },
+  "counts": {
+    "brands": 85,
+    "products": 598,
+    "equipment_categories": 53,
+    "category_brands": 126
+  },
+  "relation_summary": {
+    "products_uses_brand_id": false,
+    "products_uses_brand_text_code": true,
+    "products_uses_category_text_code": true,
+    "brands_has_brand_code_field": true,
+    "brands_has_slug_field": false,
+    "brand_category_relation_table": "category_brands",
+    "category_table": "equipment_categories"
+  },
+  "brand_anomalies": [
+    {
+      "type": "NAME_HAS_EDGE_WHITESPACE",
+      "brand": {
+        "id": "176fddab-9c05-46cb-bd06-e1bdc96076bd",
+        "name_zh": "PrismLens ",
+        "name_ja": "PrismLens ",
+        "icon_url": "",
+        "display_order": 46,
+        "is_active": true,
+        "created_at": "2026-02-13T13:43:24.03522+00:00",
+        "updated_at": "2026-02-13T13:43:24.03522+00:00",
+        "code": "P003",
+        "name_en": null,
+        "sort_order": 0
+      },
+      "trimmed": {
+        "name_zh": "PrismLens",
+        "name_ja": "PrismLens",
+        "name_en": null
+      }
+    },
+    {
+      "type": "NAME_HAS_EDGE_WHITESPACE",
+      "brand": {
+        "id": "0e3bba29-35fa-4bf7-ac21-4ca15c85a13f",
+        "name_zh": "Cine Soft ",
+        "name_ja": "Cine Soft ",
+        "icon_url": "",
+        "display_order": 60,
+        "is_active": true,
+        "created_at": "2026-02-18T10:29:01.064227+00:00",
+        "updated_at": "2026-02-18T10:29:01.064227+00:00",
+        "code": "C002",
+        "name_en": null,
+        "sort_order": 0
+      },
+      "trimmed": {
+        "name_zh": "Cine Soft",
+        "name_ja": "Cine Soft",
+        "name_en": null
+      }
+    },
+    {
+      "type": "NAME_HAS_EDGE_WHITESPACE",
+      "brand": {
+        "id": "a6b4d473-2397-472c-96fe-196d00bb5382",
+        "name_zh": "FUJINON ",
+        "name_ja": "FUJINON ",
+        "icon_url": "",
+        "display_order": 63,
+        "is_active": true,
+        "created_at": "2026-02-18T10:56:44.686915+00:00",
+        "updated_at": "2026-02-18T10:56:44.686915+00:00",
+        "code": "F002",
+        "name_en": null,
+        "sort_order": 0
+      },
+      "trimmed": {
+        "name_zh": "FUJINON",
+        "name_ja": "FUJINON",
+        "name_en": null
+      }
+    },
+    {
+      "type": "NAME_HAS_EDGE_WHITESPACE",
+      "brand": {
+        "id": "38afd6e5-5e9b-44a5-924b-d5ccd6d1d9d4",
+        "name_zh": "NISI ",
+        "name_ja": "NISI ",
+        "icon_url": "",
+        "display_order": 28,
+        "is_active": true,
+        "created_at": "2026-02-12T08:06:42.029506+00:00",
+        "updated_at": "2026-02-12T08:06:42.029506+00:00",
+        "code": "N002",
+        "name_en": null,
+        "sort_order": 0
+      },
+      "trimmed": {
+        "name_zh": "NISI",
+        "name_ja": "NISI",
+        "name_en": null
+      }
+    },
+    {
+      "type": "FORMAT_MISMATCH",
+      "brand": {
+        "id": "ee1b5198-a43c-4ad0-9070-9713a50e4b98",
+        "name_zh": "Lexar",
+        "name_ja": "Lexar",
+        "icon_url": null,
+        "display_order": 78,
+        "is_active": true,
+        "created_at": "2026-03-25T02:22:42.792599+00:00",
+        "updated_at": "2026-03-25T02:22:42.792599+00:00",
+        "code": "B0002",
+        "name_en": null,
+        "sort_order": 0
+      }
+    },
+    {
+      "type": "FORMAT_MISMATCH",
+      "brand": {
+        "id": "b591b153-25b2-4cb6-8561-2e19613185cf",
+        "name_zh": "Fujifilm",
+        "name_ja": "富士フイルム",
+        "icon_url": null,
+        "display_order": 8,
+        "is_active": true,
+        "created_at": "2026-02-09T08:24:37.566785+00:00",
+        "updated_at": "2026-02-09T08:24:37.566785+00:00",
+        "code": "FUJI",
+        "name_en": null,
+        "sort_order": 0
+      }
+    },
+    {
+      "type": "FORMAT_MISMATCH",
+      "brand": {
+        "id": "e1fb0083-3659-4575-bb22-d6b3fc3bd9e9",
+        "name_zh": "Godox",
+        "name_ja": "ゴドックス",
+        "icon_url": null,
+        "display_order": 14,
+        "is_active": true,
+        "created_at": "2026-02-09T08:24:37.566785+00:00",
+        "updated_at": "2026-02-09T08:24:37.566785+00:00",
+        "code": "GODOX",
+        "name_en": null,
+        "sort_order": 0
+      }
+    },
+    {
+      "type": "FORMAT_MISMATCH",
+      "brand": {
+        "id": "a7fbfdf0-6bd2-4c4b-bc45-01317735e1d9",
+        "name_zh": "Rode",
+        "name_ja": "ロード",
+        "icon_url": null,
+        "display_order": 15,
+        "is_active": true,
+        "created_at": "2026-02-09T08:24:37.566785+00:00",
+        "updated_at": "2026-02-09T08:24:37.566785+00:00",
+        "code": "RODE",
+        "name_en": null,
+        "sort_order": 0
+      }
+    },
+    {
+      "type": "FORMAT_MISMATCH",
+      "brand": {
+        "id": "4e64bbad-7ac5-4628-987d-1463edb55fac",
+        "name_zh": "GoPro",
+        "name_ja": "ゴープロ",
+        "icon_url": null,
+        "display_order": 20,
+        "is_active": true,
+        "created_at": "2026-02-09T08:24:37.566785+00:00",
+        "updated_at": "2026-02-09T08:24:37.566785+00:00",
+        "code": "GOPRO",
+        "name_en": null,
+        "sort_order": 0
+      }
+    },
+    {
+      "type": "FORMAT_MISMATCH",
+      "brand": {
+        "id": "8f7a700d-1a80-4f41-8b41-bc4a989480e8",
+        "name_zh": "OSEE",
+        "name_ja": "OSEE",
+        "icon_url": null,
+        "display_order": 23,
+        "is_active": true,
+        "created_at": "2026-02-11T06:42:04.656004+00:00",
+        "updated_at": "2026-02-11T06:42:04.656004+00:00",
+        "code": "OSEE",
+        "name_en": null,
+        "sort_order": 0
+      }
+    },
+    {
+      "type": "FORMAT_MISMATCH",
+      "brand": {
+        "id": "9333d4fc-5b40-4249-8321-8da197e3586d",
+        "name_zh": "MOMA",
+        "name_ja": "MOMA",
+        "icon_url": "",
+        "display_order": 24,
+        "is_active": true,
+        "created_at": "2026-02-12T04:45:30.555268+00:00",
+        "updated_at": "2026-02-12T04:45:30.555268+00:00",
+        "code": "MOMA",
+        "name_en": null,
+        "sort_order": 0
+      }
+    }
+  ],
+  "duplicate_codes": [],
+  "duplicate_names": [
+    {
+      "issue_type": "DUPLICATE_NAME_ZH",
+      "key": "lilliput",
+      "row_count": 2,
+      "rows": [
+        {
+          "id": "dfb6f18e-b425-41a3-bfdf-1640204e8065",
+          "name_zh": "Lilliput",
+          "name_ja": "Lilliput",
+          "icon_url": "",
+          "display_order": 59,
+          "is_active": true,
+          "created_at": "2026-02-18T10:25:36.005131+00:00",
+          "updated_at": "2026-02-18T10:25:36.005131+00:00",
+          "code": "L006",
+          "name_en": null,
+          "sort_order": 0
+        },
+        {
+          "id": "8df20dff-8a03-45b9-9c87-833624261a03",
+          "name_zh": "Lilliput",
+          "name_ja": "Lilliput",
+          "icon_url": "",
+          "display_order": 38,
+          "is_active": true,
+          "created_at": "2026-02-12T08:12:36.796621+00:00",
+          "updated_at": "2026-02-12T08:12:36.796621+00:00",
+          "code": "L003",
+          "name_en": null,
+          "sort_order": 0
+        }
+      ]
+    },
+    {
+      "issue_type": "DUPLICATE_NAME_ZH",
+      "key": "lensbank",
+      "row_count": 2,
+      "rows": [
+        {
+          "id": "ccc54da3-deb4-45ee-87fe-9207f59b54dd",
+          "name_zh": "LensBank",
+          "name_ja": "レンズバンク",
+          "icon_url": "",
+          "display_order": 41,
+          "is_active": true,
+          "created_at": "2026-02-12T08:15:22.984414+00:00",
+          "updated_at": "2026-02-12T08:15:22.984414+00:00",
+          "code": "L004",
+          "name_en": null,
+          "sort_order": 0
+        },
+        {
+          "id": "f0511a36-e162-4be7-8020-1a56efe95e4c",
+          "name_zh": "Lensbank",
+          "name_ja": "レンズバンク",
+          "icon_url": "",
+          "display_order": 80,
+          "is_active": true,
+          "created_at": "2026-04-06T03:00:17.734799+00:00",
+          "updated_at": "2026-04-06T03:00:17.734799+00:00",
+          "code": "X001",
+          "name_en": null,
+          "sort_order": 0
+        }
+      ]
+    },
+    {
+      "issue_type": "DUPLICATE_NAME_JA",
+      "key": "lilliput",
+      "row_count": 2,
+      "rows": [
+        {
+          "id": "dfb6f18e-b425-41a3-bfdf-1640204e8065",
+          "name_zh": "Lilliput",
+          "name_ja": "Lilliput",
+          "icon_url": "",
+          "display_order": 59,
+          "is_active": true,
+          "created_at": "2026-02-18T10:25:36.005131+00:00",
+          "updated_at": "2026-02-18T10:25:36.005131+00:00",
+          "code": "L006",
+          "name_en": null,
+          "sort_order": 0
+        },
+        {
+          "id": "8df20dff-8a03-45b9-9c87-833624261a03",
+          "name_zh": "Lilliput",
+          "name_ja": "Lilliput",
+          "icon_url": "",
+          "display_order": 38,
+          "is_active": true,
+          "created_at": "2026-02-12T08:12:36.796621+00:00",
+          "updated_at": "2026-02-12T08:12:36.796621+00:00",
+          "code": "L003",
+          "name_en": null,
+          "sort_order": 0
+        }
+      ]
+    },
+    {
+      "issue_type": "DUPLICATE_NAME_JA",
+      "key": "レンズバンク",
+      "row_count": 2,
+      "rows": [
+        {
+          "id": "ccc54da3-deb4-45ee-87fe-9207f59b54dd",
+          "name_zh": "LensBank",
+          "name_ja": "レンズバンク",
+          "icon_url": "",
+          "display_order": 41,
+          "is_active": true,
+          "created_at": "2026-02-12T08:15:22.984414+00:00",
+          "updated_at": "2026-02-12T08:15:22.984414+00:00",
+          "code": "L004",
+          "name_en": null,
+          "sort_order": 0
+        },
+        {
+          "id": "f0511a36-e162-4be7-8020-1a56efe95e4c",
+          "name_zh": "Lensbank",
+          "name_ja": "レンズバンク",
+          "icon_url": "",
+          "display_order": 80,
+          "is_active": true,
+          "created_at": "2026-04-06T03:00:17.734799+00:00",
+          "updated_at": "2026-04-06T03:00:17.734799+00:00",
+          "code": "X001",
+          "name_en": null,
+          "sort_order": 0
+        }
+      ]
+    }
+  ],
+  "product_brand_orphans": [
+    {
+      "product_id": "11111111-1111-1111-1111-111111111114",
+      "product_name": "Zoom F6 錄音機",
+      "brand_code": "ZOOM"
+    },
+    {
+      "product_id": "6356b47a-4bb6-4614-9142-dc7518d136fe",
+      "product_name": "24mm f/14 2x Macro Probe (PL) 微距鏡",
+      "brand_code": "L005"
+    },
+    {
+      "product_id": "c6446469-a6f7-4a4f-95a3-4b40da99ecdc",
+      "product_name": "12mm t/2.9 Zero-D Cine (PL)",
+      "brand_code": "L005"
+    },
+    {
+      "product_id": "3a006f8d-b9d0-45a7-9eae-238add323255",
+      "product_name": "F4",
+      "brand_code": "ZOOM"
+    },
+    {
+      "product_id": "7a3a1507-bc38-493e-9707-c87d15db9319",
+      "product_name": "FRC-8",
+      "brand_code": "ZOOM"
+    },
+    {
+      "product_id": "99826fea-1131-4b22-9ba7-f36c52b02056",
+      "product_name": "Zoom F8",
+      "brand_code": "ZOOM"
+    },
+    {
+      "product_id": "8af40633-755f-44e2-aec3-59c3428b8071",
+      "product_name": "Zoom FRC-8",
+      "brand_code": "ZOOM"
+    },
+    {
+      "product_id": "4d878423-ba1e-48ac-92f6-74c852bb3e46",
+      "product_name": "H8",
+      "brand_code": "ZOOM"
+    },
+    {
+      "product_id": "22ef6e53-7282-4fee-90ba-141d48df033a",
+      "product_name": "H6 BLACK",
+      "brand_code": "ZOOM"
+    },
+    {
+      "product_id": "63c352f5-e676-4cf2-9c33-c8c3d772b27b",
+      "product_name": "Zoom H6 BLACK ",
+      "brand_code": "ZOOM"
+    },
+    {
+      "product_id": "0bb89781-62df-411e-8c6b-f3d9b4b69587",
+      "product_name": "Zoom F4",
+      "brand_code": "ZOOM"
+    },
+    {
+      "product_id": "597403e6-a978-462f-b016-612c6717191c",
+      "product_name": "Zoom EXH-6",
+      "brand_code": "ZOOM"
+    },
+    {
+      "product_id": "a55800a8-1338-4299-8b01-44f8182f98a3",
+      "product_name": "F8",
+      "brand_code": "ZOOM"
+    }
+  ],
+  "product_category_orphans": [],
+  "products_with_text_brand_only_count": 596,
+  "category_brand_brand_orphans": [],
+  "category_brand_category_orphans": [],
+  "unknown_product_brand_codes": [
+    "L005",
+    "ZOOM"
+  ],
+  "unused_brand_codes_sample": [
+    {
+      "id": "b591b153-25b2-4cb6-8561-2e19613185cf",
+      "code": "FUJI",
+      "name": "Fujifilm"
+    },
+    {
+      "id": "a4eea6e4-7428-423d-afd0-7a1ef03efff8",
+      "code": "T007",
+      "name": "Tamron"
+    },
+    {
+      "id": "ccdbe6eb-4d5b-4f3b-b263-efa7bf1dcf71",
+      "code": "Z008",
+      "name": "Zoom"
+    },
+    {
+      "id": "65e08b4f-377d-4f05-8e01-10a8710fcabb",
+      "code": "A004",
+      "name": "Audio-Technica"
+    },
+    {
+      "id": "6edaf99b-e211-44b3-be78-6d718c99295f",
+      "code": "S012",
+      "name": "SEKONIC"
+    },
+    {
+      "id": "d4dda1fa-bafd-4417-b32f-06617eb61c27",
+      "code": "X002",
+      "name": "YC Onion"
+    }
+  ],
+  "brands_without_category_links": [
+    {
+      "brand_id": "8a3d0205-8450-4939-9a9a-83955df6c7f3",
+      "brand_code": "L001",
+      "brand_name": "Leica",
+      "category_link_count": 0
+    },
+    {
+      "brand_id": "9e512f9d-109e-405a-9f9f-7de4c2af5bad",
+      "brand_code": "A005",
+      "brand_name": "ATOMOS",
+      "category_link_count": 0
+    },
+    {
+      "brand_id": "4ef6b196-1562-4722-a5c5-bcc367ec563d",
+      "brand_code": "N003",
+      "brand_name": "Nanlite",
+      "category_link_count": 0
+    },
+    {
+      "brand_id": "a5430ff5-5cae-4b37-969b-70d0886987cc",
+      "brand_code": "Z002",
+      "brand_name": "Zhiyun",
+      "category_link_count": 0
+    }
+  ]
+}
